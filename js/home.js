@@ -1,4 +1,4 @@
-var app = angular.module('myApp', [ 'ngRoute'])
+var app = angular.module('myApp', [])
 app.controller('myCtrl', function ($scope) {
   $scope.searchItems = [
     {
@@ -132,7 +132,7 @@ app.controller('myCtrl', function ($scope) {
     },
   ];
   
-  $scope.foundList = []
+  $scope.carts = []
   $scope.message = ''
   // $scope.isVisible = false
   // $scope.show = function () {
@@ -141,7 +141,7 @@ app.controller('myCtrl', function ($scope) {
   
   $scope.store = function(item){
     if(item){
-    $scope.foundList.push({section:item.section, id:item.id, name:item.name, desc:item.desc, image:item.image, price:item.price})
+    $scope.carts.push({section:item.section, id:item.id, name:item.name, desc:item.desc, image:item.image, price:item.price})
     // console.log($scope.foundList)
    }
   }
@@ -154,7 +154,7 @@ app.controller('myCtrl', function ($scope) {
   }
   $scope.remove = function(cart){
     if(cart){
-      $scope.foundList.splice($scope.foundList.indexOf(cart),1);
+      $scope.carts.splice($scope.carts.indexOf(cart),1);
       // $scope.total -= cart.price;
     }
   }
@@ -175,16 +175,17 @@ app.filter('searchFor', function () {
     })
     return result
   }
-})
+});
 
 //Routing method
-app.config(function($routerProvider){
-  $routerProvider
-  .when("/cart", {
-    templateUrl: 'Cart.html',
-    controller: 'cart'
-  });
-})
-app.controller('cart',function($scope, $routerParams){
-  $scope.cart = $routerParams.cart; 
-})
+
+// app.config(function($routerProvider){
+//   $routerProvider
+//   .when("/cart", {
+//     templateUrl: 'Cart.html',
+//     controller: 'cartCtrl'
+//   });
+// })
+// app.controller('cart',function($scope, $routerParams){
+//   $scope.cart = $routerParams.cart; 
+// })

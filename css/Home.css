@@ -46,8 +46,8 @@
 .bdy_container{
     background-image: url(../images/bg-1.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 100%;
+    background-size: cover;
+    height: 75%;
 }
 .btn{
     border-radius: 10px;

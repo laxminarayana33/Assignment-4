@@ -44,12 +44,13 @@
             </div> 
         </div> 
     </div>
+    <h2>Cart</h2>
+
         <div class="row">
-            <div class="col-md-4"ng-init="setTotals(cart)" > 
-                 <h2>Cart</h2>
-                <div class="card cart_card" ng-repeat="cart in foundList"  >
+            <div class="col-md-4"ng-init="setTotals(cart)"> 
+                <div class="card cart_card" ng-repeat="cart in carts"  >
                     <div class="card-body">
-                        <p>  <img class="card-img" ng-src="{{cart.image}}" alt="" /> 
+                        <p>  <img class="card-img" ng-src="{{cart.image}}" alt="image" /> 
                          <button class="btn-cart btn-danger" ng-click="remove(cart)">Remove</button>
                         </p>   
                         <h6 class="name_price">{{cart.name}}  &nbsp; &nbsp;   &#8377;{{cart.price}} </h6>
@@ -59,7 +60,7 @@
                 <h6>Total Price of Items: &#8377; {{total}}</h6>
             </div>
       </div>
-   </div>
+  
 
    <script src="./js/home.js"></script>
    

@@ -59,6 +59,31 @@
             <div class="heading">
                 <h1 style="text-align: center;"> Our Craft Items</h1>
             </div>
+            <div class="add_items">
+                <form name="form" ng-submit="upload()">
+                    <div class="row">
+                <div class="col-md-4 form_input">
+                        <label for="name">Item Name</label>
+                    <input type="text" placeholder="Item Name" ng-model="iname">
+                </div>
+                <div class="col-md-4 form_input">
+                    <label for="">Item Price</label>
+                    <input type="number" placeholder="Item Price" ng-model="iprice">
+                </div>
+                <div class="col-md-4 form_input">
+                    <label for="">Item Type</label>
+                    <input type="text" placeholder="Wall / Table " ng-model="itype">
+                </div>
+                <div class="col-md-4 form_input">
+                    <label for="">Choose File</label>
+                    <input type="file" name="file" id="file">
+                </div>
+                <div class="col-md-4">
+                <button class="btn btn-success">Upload</button>
+            </div>
+            </div>
+            </form>
+            </div>
             <div class="items">
                 <div class="row">
                     <div class="col-md-3" ng-repeat="item in searchItems | searchFor:searchString">
