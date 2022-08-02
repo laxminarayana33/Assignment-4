@@ -71,7 +71,7 @@ app.controller('myCtrl', function ($scope) {
       id: 9,
       name: 'Birds Nest',
       desc: 'Most popular Whisky in india ',
-      image: 'images/wall_birds_nest.jpg',
+      image: 'images/wall_bird_nest.jpg',
       price: '900',
     },
     {
@@ -79,7 +79,7 @@ app.controller('myCtrl', function ($scope) {
       id: 10,
       name: 'Birds',
       desc: 'The best party drink is jack',
-      image: 'images/wall_birds.jpg',
+      image: 'images/wall_bird.jpg',
       price: '800',
     },
     {
