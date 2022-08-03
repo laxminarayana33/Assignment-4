@@ -170,8 +170,6 @@ app.controller('myCtrl', function ($scope) {
   $scope.upload = function(item){
     if($scope.newItem){
       $scope.searchItems.push({section:$scope.section, id:$scope.id, name:$scope.name, desc:$scope.desc, image:$scope.image, price:$scope.price})
-
-   
       console.log($scope.searchItems)
     }
 
