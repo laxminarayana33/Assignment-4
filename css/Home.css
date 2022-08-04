@@ -158,7 +158,6 @@ footer{
 .follow_head{
     text-align: center;
     color: #dabf7a;
-    text-decoration:underline;
     font-weight: 600;
     font-family: 'Times New Roman', Times, serif;
     margin-top: 20px;
@@ -186,4 +185,35 @@ footer{
 }
 a:hover {
     color: #f93737;
+}
+.about_us{
+    padding: 10px;
+    text-align: justify;
+    margin-top: 25px;
+    font-family: serif;
+}
+.abt_heading{
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(209 161 36);
+    margin-top: 10%;
+}
+.abt_body{
+    padding: 5px;
+    color: #3d679b;
+    font-size: 16px;
+    font-family: cursive;
+}
+.partner{
+    margin-bottom: 20px;
+}
+.partner_heading{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 35px;
+}
+.partner_body{
+    text-align: center;
+
 }
