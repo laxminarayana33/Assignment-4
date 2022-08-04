@@ -1,4 +1,11 @@
-var app = angular.module('myApp', [])
+var app = angular.module('myApp', ['ngRoute']);
+app.config("$routerProvider", function($routerProvider){
+  $routerProvider
+  .when('/cart',{
+    templateUrl: 'cart.html',
+    controller:'myCtrl'
+  })
+});
 app.controller('myCtrl', function ($scope) {
   $scope.searchItems = [
     {
