@@ -186,6 +186,19 @@ footer{
 a:hover {
     color: #f93737;
 }
+
+/* About us Section */
+.about_logo{
+    margin-top: 20px;
+}
+.about_menu_item{
+    display: inline-block;
+    padding-left: 3%;
+    padding-top: 5%;
+    font-weight: 600;
+    margin: 0.5%;
+    color:#0d639b;
+}
 .about_us{
     padding: 10px;
     text-align: justify;
@@ -216,4 +229,26 @@ a:hover {
 .partner_body{
     text-align: center;
 
+}
+
+/*  Gallery Section */
+.gallery_title{
+    text-align: center;
+    color: #ddaf2b;
+    font-family: emoji;
+}
+.gallery{
+    height: 300;
+    width: 300;
+}
+.gallery_logo{
+    margin-top: 20px;
+}
+.gallery_menu_item{
+    display: inline-block;
+    padding-left: 3%;
+    padding-top: 5%;
+    font-weight: 600;
+    margin: 0.5%;
+    color:#0d639b;
 }

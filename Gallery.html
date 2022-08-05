@@ -26,32 +26,33 @@
     <link rel="stylesheet" href="css/Home.css" />
   </head>
   <body ng-app="myApp" ng-controller="myCtrl">
+    <!-- Header Section -->
     <div class="search">
       <div class="container">
         <div class="header">
           <div class="row main-head">
             <div class="col-md-4">
               <a class="logo_link" href="Home.html">
-                <img class="logo" src="images/logo.png" alt="logo" />
+                <img class="gallery_logo" src="images/logo.png" alt="logo" />
               </a>
             </div>
             <div class="col-md-8 content">
               <div class="menu">
                 <ul class="menu_list">
-                  <li class="menu_items">
+                  <li class="gallery_menu_item">
                     <a class="menu_link" href="Home.html"> Home</a>
                   </li>
-                  <!-- <li class="menu_items">About</li> -->
-                  <li class="menu_items">
+                  <!-- <li class="gallery_menu_item">About</li> -->
+                  <li class="gallery_menu_item">
                     <a class="menu_link" href="About.html">About</a>
                   </li>
-                  <li class="menu_items">
+                  <li class="gallery_menu_item">
                     <a class="menu_link" href="Gallery.html"> Gallery</a>
                   </li>
-                  <li class="menu_items">
+                  <li class="gallery_menu_item">
                     <a class="menu_link" href="Contact.html">Contact</a>
                   </li>
-                  <li class="menu_items">
+                  <li class="gallery_menu_item">
                     <input
                       class="input"
                       type="search"
@@ -60,7 +61,7 @@
                       placeholder="Search Here..."
                     />
                   </li>
-                  <li class="menu_items">
+                  <li class="gallery_menu_item">
                     <a class="menu_link" href="./Cart.html">
                       <i class="bi bi-cart-plus"> </i>
                       <svg
@@ -80,14 +81,14 @@
                       </svg>
                     </a>
                   </li>
-                  <!-- </li> <li class="menu_items"><button class="btn btn-primary"ng-click="show()">Narrow it Down For Me</button>  </li> -->
+                  <!-- </li> <li class="gallery_menu_item"><button class="btn btn-primary"ng-click="show()">Narrow it Down For Me</button>  </li> -->
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <section>
+      <!-- <section>
         <div class="bdy_container">
           <div class="bdy_container_body">
             <h1>Hand Made crafts are very special</h1>
@@ -98,110 +99,45 @@
             <h5>Lets begin ur home decoration</h5>
           </div>
         </div>
-      </section>
+      </section> -->
     </div>
+    <!-- Gallery Section -->
     <section>
       <div class="container">
         <div class="heading">
-          <h1 style="text-align: center">Our Craft Items</h1>
+          <h1 class="gallery_title"> Gallery </h1>
         </div>
-        <div class="add_items">
-          <form name="form" ng-submit="upload()">
-            <div class="row">
-              <div class="col-md-4 form_input">
-                <label for="name">Item Name:</label>
-                <input
-                  class="form-control"
-                  name="name"
-                  type="text"
-                  placeholder="Item Name"
-                  ng-model="name"
-                  required
-                />
-                <span ng-show="form.name.$touched && form.name.$invalid">
-                  Please Enter Item Name</span
-                >
-              </div>
-              <div class="col-md-4 form_input">
-                <label for="">Item Price:</label>
-                <input
-                  class="form-control"
-                  name="price"
-                  type="number"
-                  placeholder="Item Price"
-                  ng-model="price"
-                  required
-                />
-                <span ng-show="form.price.$touched && form.price.$invalid">
-                  Please Enter Item Price</span
-                >
-              </div>
-              <div class="col-md-4 form_input">
-                <label for="">Item Type:</label>
-                <input
-                  class="form-control"
-                  name="type"
-                  type="text"
-                  placeholder="Wall / Table "
-                  ng-model="section"
-                  required
-                />
-                <span ng-show="form.type.$touched && form.type.$invalid">
-                  Please Enter Item Type</span
-                >
-              </div>
-              <div class="col-md-4 form_input">
-                <input
-                  class="form-control"
-                  ng-model="image"
-                  type="file"
-                  accept="image/png,image/jpeg,image/jpg, image/*"
-                  name="photo"
-                  id="photo"
-                  required
-                />
-                <!-- <span ng-show="form.photo.$touched && form.photo.$invalid"> Please Choose Photo</span> -->
-                <!-- <span ng-show="form.photo.dirty && form.photo.$error.width"> Please Choose Photo Between 250 x 250 Pxiels</span> -->
-              </div>
-              <div class="col-md-4">
-                <button class="btn btn-success upload_btn" type="submit">
-                  Upload
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <hr />
         <div class="items">
           <div class="row">
             <div
               class="col-md-3"
               ng-repeat="item in searchItems | searchFor:searchString"
             >
-              <div class="card">
+              <div class="gallery">
                 <h4>
-                  <img
-                    class="image"
-                    ng-src="{{item.image}}"
-                    alt="Hand Made Items"
-                  />
-                </h4>
-                <div class="card-body">
+                    <img
+                      class="image"
+                      ng-src="{{item.image}}"
+                      alt="Hand Made Items"
+                    />
+                  </h4>
+                <!-- <div class="card-body">
                   <h6>{{item.name}}</h6>
-                  <!-- <p>{{item.desc}}</p> -->
+                  <p>{{item.desc}}</p>
                   <p>
                     &#8377; {{item.price}}
                     <button class="button btn-primary" ng-click="store(item)">
                       Add Cart
                     </button>
                   </p>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- Footer Section -->
     <footer>
       <div class="container">
         <div class="row">
@@ -217,23 +153,23 @@
           <div class="col-md-4">
             <div class="footer_menu">
               <ul class="footer_menu_list">
-                <li class="footer_menu_items">
+                <li class="footer_gallery_menu_item">
                   <a class="fmenu_link" href="Home.html"> Home</a>
                 </li>
-                <!-- <li class="menu_items">About</li> -->
-                <li class="footer_menu_items">
+                <!-- <li class="gallery_menu_item">About</li> -->
+                <li class="footer_gallery_menu_item">
                   <a class="fmenu_link" href="About.html">About</a>
                 </li>
-                <li class="footer_menu_items">
+                <li class="footer_gallery_menu_item">
                   <a class="fmenu_link" href="Gallery.html"> Gallery</a>
                 </li>
-                <li class="footer_menu_items">
+                <li class="footer_gallery_menu_item">
                   <a class="fmenu_link" href="Contact.html">Contact</a>
                 </li>
-                <!-- <li class="menu_items">
+                <!-- <li class="gallery_menu_item">
                                      <input class="input" type="search" name="search" ng-model="searchString" placeholder="Search Here...">
                                      </li> -->
-                <!-- <li class="menu_items"> 
+                <!-- <li class="gallery_menu_item"> 
                                     <a class="menu_link"  href="./Cart.html">    <i class="bi bi-cart-plus"> </i>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
                                     <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
@@ -241,7 +177,7 @@
                                   </svg>
                                 </a>    
                                 </li>     -->
-                <!-- </li> <li class="menu_items"><button class="btn btn-primary"ng-click="show()">Narrow it Down For Me</button>  </li> -->
+                <!-- </li> <li class="gallery_menu_item"><button class="btn btn-primary"ng-click="show()">Narrow it Down For Me</button>  </li> -->
               </ul>
             </div>
           </div>
@@ -324,21 +260,6 @@
       </div>
     </footer>
 
-    <!-- <div class="row">
-            <div class="col-md-4"ng-init="setTotals(cart)" > 
-                 <h2>Cart</h2>
-                <div class="card cart_card" ng-repeat="cart in foundList"  >
-                    <div class="card-body">
-                        <p>  <img class="card-img" ng-src="{{cart.image}}" alt="" /> 
-                         <button class="btn-cart btn-danger" ng-click="remove(cart)">Remove</button>
-                        </p>   
-                        <h6 class="name_price">{{cart.name}}  &nbsp; &nbsp;   &#8377;{{cart.price}} </h6>
-                        <p>{{cart.desc}}</p>
-                    </div>
-                </div>
-                <h6>Total Price of Items: &#8377; {{total}}</h6>
-            </div>
-      </div> -->
       <div ng-view></div>
     <script src="./js/home.js"></script>
   </body>
