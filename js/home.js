@@ -211,9 +211,9 @@ $scope.total = 0
 
   $scope.liked = false;
 
-  // $scope.payment = function(){
-  //   alert("payment page")
-  // }
+  $scope.payment = function(){
+    alert("payment done")
+  }
 
   
   // $scope.like = function(item){
