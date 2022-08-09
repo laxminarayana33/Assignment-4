@@ -16,7 +16,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Old Model Trendy Car',
       desc: 'The best Brandy in the Liquor',
       image: 'images/table_car.jpg',
-      price: '1200',
+      price: 1200,
     },
     {
       section: 'table',
@@ -24,7 +24,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Cycle',
       desc: 'Best for Parties in the Night Time',
       image: 'images/table_cycle.jpg',
-      price: '1400',
+      price: 1400,
     },
     {
       section: 'Table',
@@ -32,7 +32,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Firangi',
       desc: 'Martell is the most drinkable brand',
       image: 'images/table_firangi.jpg',
-      price: '1550',
+      price: 1550,
     },
     {
       section: 'table',
@@ -40,7 +40,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Jumbo Elephant',
       desc: 'The most Preferd Brandy for parties',
       image: 'images/table_jumbo_elephant.jpg',
-      price: '1150',
+      price: 1150,
     },
     {
       section: 'table',
@@ -48,7 +48,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Lamp',
       desc: 'Remy Martin is the best selling Brandy',
       image: 'images/table_lamp.jpg',
-      price: '1050',
+      price: 1050,
     },
     {
       section: 'table',
@@ -56,7 +56,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Old Music Player',
       desc: 'The smoothest Whisky for drinking ',
       image: 'images/table_music.jpg',
-      price: '4000',
+      price: 4000,
     },
     {
       section: 'table',
@@ -64,7 +64,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Paradise Tribal Rajastani',
       desc: 'The most Prefred whisky by indians',
       image: 'images/table_paradise_tribal.jpg',
-      price: '3500',
+      price: 3500,
     },
     {
       section: 'table',
@@ -72,7 +72,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Hand made Bowls',
       desc: 'Best Night Occations drinking Whisky',
       image: 'images/table_things.jpg',
-      price: '600',
+      price: 600,
     },
     {
       section: 'wall',
@@ -80,7 +80,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Birds Nest',
       desc: 'Most popular Whisky in india ',
       image: 'images/wall_bird_nest.jpg',
-      price: '900',
+      price: 900,
     },
     {
       section: 'wall',
@@ -88,7 +88,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Birds',
       desc: 'The best party drink is jack',
       image: 'images/wall_bird.jpg',
-      price: '800',
+      price: 800,
     },
     {
       section: 'wall',
@@ -96,7 +96,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Dream Catcher',
       desc: 'Best drink for get together ',
       image: 'images/wall_dream_catcher.jpg',
-      price: '1800',
+      price: 1800,
     },
     {
       section: 'wall',
@@ -104,7 +104,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Dream Catcher',
       desc: 'Reserved classic officailly for drinks',
       image: 'images/wall_dream_catcher2.jpg',
-      price: '1000',
+      price: 1000,
     },
     {
       section: 'wall',
@@ -112,7 +112,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Fish Family',
       desc: 'The best Drink in Winter Times',
       image: 'images/wall_fish_family.jpg',
-      price: '2200',
+      price: 2200,
     },
     {
       section: 'wall',
@@ -120,7 +120,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Hanging Bells',
       desc: 'Offical Party Drink for classic peoples',
       image: 'images/wall_hanging.jpg',
-      price: '1000',
+      price: 1000,
     },
     {
       section: 'wall',
@@ -128,7 +128,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Pots',
       desc: 'The beast of the liquors',
       image: 'images/wall_pots.jpg',
-      price: '2850',
+      price: 2850,
     },
     {
       section: 'wall',
@@ -136,7 +136,7 @@ app.controller('myCtrl', function ($scope) {
       name: 'Subha Labh',
       desc: 'The beast of the liquors',
       image: 'images/wall_shub_labh.jpg',
-      price: '2850',
+      price: 2850,
     },
   ];
   
@@ -151,19 +151,27 @@ app.controller('myCtrl', function ($scope) {
     if(item){
     $scope.carts.push({section:item.section, id:item.id, name:item.name, desc:item.desc, image:item.image, price:item.price})
     // console.log($scope.foundList)
+    localStorage.setItem("carts", JSON.stringify(carts));
+    // console.log(carts);
+    // return carts
    }
   }
-  $scope.total = 0;
+
+  var carts = JSON.parse(localStorage.getItem("carts"));
+   
+$scope.total = 0
+  
   $scope.setTotals = function(cart) {
     if(cart){
-      $scope.total += cart.price;
-       console.log($scope.total)
+      $scope.total += cart.price
     }
+   
   }
+
   $scope.remove = function(cart){
     if(cart){
       $scope.carts.splice($scope.carts.indexOf(cart),1);
-      // $scope.total -= cart.price;
+      $scope.total -= cart.price;
     }
   }
   // Adding Item
@@ -180,9 +188,44 @@ app.controller('myCtrl', function ($scope) {
       $scope.searchItems.push({section:$scope.section, id:$scope.id, name:$scope.name, desc:$scope.desc, image:$scope.image, price:$scope.price})
       console.log($scope.searchItems)
     }
-
   }
 
+  $scope.increase = false;
+  $scope.decrease = false;
+  $scope.count = '';
+
+  $scope.increment = function(){
+    if(increase){
+      return
+    }
+    $scope.count++
+    increase =  true;
+  }
+  $scope.decrement = function(){
+    if(decrease){
+      return
+    }
+    $scope.count++
+    decrease =  true;
+  }
+
+  $scope.liked = false;
+
+  // $scope.payment = function(){
+  //   alert("payment page")
+  // }
+
+  
+  // $scope.like = function(item){
+  //   if(color = false){
+  //     return color.fill = 'green'
+  //   }
+  // }
+
+  // $scope.showModal = false;
+  // $scope.open = function(){
+  //   $scope.showModal = !$scope.showModal;
+  // }
 
 });
 
@@ -203,6 +246,44 @@ app.filter('searchFor', function () {
   }
 });
 
+
+app.controller('formCtrl', function ($scope) {
+  $scope.user = [
+    Name= '',
+    surname= '',
+    email= '',
+    phonenumber= '',
+    password= '',
+    confirmpassword= '',
+]
+  $scope.message = '';
+  $scope.users = [];
+
+
+  $scope.formGroup = function () {
+    if ($scope.user) {
+      $scope.users.push({
+        Name: $scope.Name,
+        surname: $scope.surname,
+        email: $scope.email,
+        phonenumber: $scope.phonenumber,
+        password: $scope.password,
+        confirmpassword: $scope.confirmpassword,
+      })
+      console.log($scope.users);
+    // $scope.form = '';
+    }
+  }
+  if(password == confirmpassword)$scope.message = 'Password is matched'
+  if(password == !confirmpassword)$scope.message = 'Password is Miss matched'
+
+  $scope.formpage = true;
+  $scope.login = function(){
+    $scope.formpage = !$scope.formpage
+  }
+
+
+})
 //Routing method
 
 // app.config(function($routerProvider){
@@ -215,3 +296,27 @@ app.filter('searchFor', function () {
 // app.controller('cart',function($scope, $routerParams){
 //   $scope.cart = $routerParams.cart; 
 // })
+
+
+app.controller('myctrl', function($modal){
+  $scope.payment = function(cart){
+    $scope.selected =  cart;
+  }
+$scope.payment = function(cart){
+  $modal.open({
+    templateUrl:'payment.html',
+    backdrop:true,
+    windowClass : 'modal',
+    controller:function($scope, $instance){
+      $scope.selected = cart
+      $scope.save=function(){
+        console.log('everything ok')
+      }
+      $scope.cancel = function(){
+        $instance.dismiss('cancel');
+      };
+    }
+  
+  })
+}
+})
