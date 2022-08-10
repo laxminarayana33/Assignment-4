@@ -1,32 +1,44 @@
-.search{
-    /* margin: 20px; */
-    background-image:url(../images/bg-2.jpg);
+/* .search{
+    margin: 20px;
+   
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 .header{
     /* margin: 20px 0; */
-    /* background-image: url(../images/hbg.jpg); */
+    background-image: url(../images/headerbg-1.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 50%; */
+    /* position: fixed; */
+    background-color: white;
 }
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .sticky + .content {
+    padding-top: 102px;
+  }
 /* .main-head{
    padding: 35px;
 } */
 .logo{
-    background-color:#f8f9fa9c;
+    background-color: #e1e8ee00;
     /* opacity: 0.6; */
     text-align: center;
     /* padding-top: 5%; */
     margin-top: 10%;
-    margin-left: 20%;
+    margin-left: 18%;
+    margin-bottom: 10%;
 
 }
 .input{
-    border-radius: 20px;
+    border-radius: 10px;
     opacity: 0.7;
     width: 100%;
+    padding-left: 2%;
 }
 .content{
        /* text-align: inherit; */
@@ -43,7 +55,7 @@
 .menu_items{
     display: inline-block;
     padding-left: 3%;
-    padding-top: 7%;
+    padding-top: 5%;
     font-weight: 600;
     margin: 0.5%;
     color:#0d639b;
@@ -57,17 +69,18 @@
 }
 .bdy_container{
     /* background-image: url(../images/bg-1.jpg); */
+    background-image:url(../images/bg-2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 75%;  
+    height: 100%;  
 }
 .bdy_container_body{
         /* text-align: center; */
-        padding-top: 7%;
-        padding-left: 3%;
+        padding-top: 20%;
+        padding-left: 4%;
         font-size: 20px;
-        font-weight: 700;
-        color:#0d639b
+        font-weight: 600;
+        color: #0d639b;
 }
 .btn{
     border-radius: 10px;
@@ -76,7 +89,7 @@
 .incre_btn{
 height: 20%;
 width: 2px;
-position: relative;
+/* position: relative; */
 }
 .incre_symbl{
     margin-top: -8px;
@@ -101,6 +114,7 @@ fill: #ddaf2b;
     text-align: center;
     border-radius: 12px;
     box-shadow: 5px 5px #acffdf;
+    position: inherit;
 }
 .image{
     border-radius: 12px;
@@ -283,7 +297,7 @@ a:hover {
 } */
 .menu_list{
     list-style-type: none;
-    padding: 15px;
+    /* padding: 15px; */
     text-align: center;
 }
 .list_item{
@@ -355,4 +369,8 @@ span{
  }
  .red-color{
     fill:red;
+ }
+
+ .wishlist{
+    margin-top: 15%;
  }

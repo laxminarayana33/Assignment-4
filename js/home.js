@@ -17,6 +17,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'The best Brandy in the Liquor',
       image: 'images/table_car.jpg',
       price: 1200,
+      quantity:'1'
     },
     {
       section: 'table',
@@ -25,6 +26,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'Best for Parties in the Night Time',
       image: 'images/table_cycle.jpg',
       price: 1400,
+      quantity:'1'
     },
     {
       section: 'Table',
@@ -33,6 +35,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'Martell is the most drinkable brand',
       image: 'images/table_firangi.jpg',
       price: 1550,
+      quantity:'1'
     },
     {
       section: 'table',
@@ -41,6 +44,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'The most Preferd Brandy for parties',
       image: 'images/table_jumbo_elephant.jpg',
       price: 1150,
+      quantity:'1'
     },
     {
       section: 'table',
@@ -49,6 +53,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'Remy Martin is the best selling Brandy',
       image: 'images/table_lamp.jpg',
       price: 1050,
+      quantity:'1'
     },
     {
       section: 'table',
@@ -57,6 +62,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'The smoothest Whisky for drinking ',
       image: 'images/table_music.jpg',
       price: 4000,
+      quantity:'1'
     },
     {
       section: 'table',
@@ -65,6 +71,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'The most Prefred whisky by indians',
       image: 'images/table_paradise_tribal.jpg',
       price: 3500,
+      quantity:'1'
     },
     {
       section: 'table',
@@ -73,6 +80,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'Best Night Occations drinking Whisky',
       image: 'images/table_things.jpg',
       price: 600,
+      quantity:'1'
     },
     {
       section: 'wall',
@@ -81,6 +89,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'Most popular Whisky in india ',
       image: 'images/w_bird_nest.jpg',
       price: 900,
+      quantity:'1'
     },
     {
       section: 'wall',
@@ -89,6 +98,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'The best party drink is jack',
       image: 'images/w_bird.jpg',
       price: 800,
+      quantity:'1'
     },
     {
       section: 'wall',
@@ -97,6 +107,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'Best drink for get together ',
       image: 'images/wall_dream_catcher.jpg',
       price: 1800,
+      quantity:'1'
     },
     {
       section: 'wall',
@@ -105,6 +116,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'Reserved classic officailly for drinks',
       image: 'images/wall_dream_catcher2.jpg',
       price: 1000,
+      quantity:'1'
     },
     {
       section: 'wall',
@@ -113,6 +125,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'The best Drink in Winter Times',
       image: 'images/wall_fish_family.jpg',
       price: 2200,
+      quantity:'1'
     },
     {
       section: 'wall',
@@ -121,6 +134,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'Offical Party Drink for classic peoples',
       image: 'images/wall_hanging.jpg',
       price: 1000,
+      quantity:'1'
     },
     {
       section: 'wall',
@@ -129,6 +143,7 @@ app.controller('myCtrl', function ($scope) {
       desc: 'The beast of the liquors',
       image: 'images/wall_pots.jpg',
       price: 2850,
+      quantity:'1'
     },
     {
       section: 'wall',
@@ -137,41 +152,80 @@ app.controller('myCtrl', function ($scope) {
       desc: 'The beast of the liquors',
       image: 'images/wall_shub_labh.jpg',
       price: 2850,
+      quantity: '1'
     },
   ];
   
-  $scope.carts = []
-  $scope.message = ''
+  
+  
   // $scope.isVisible = false
   // $scope.show = function () {
   //   $scope.isVisible = $scope.isVisible ? fasle : true
   // }
   
+  // ADD TO CART
+  $scope.carts = [];
   $scope.store = function(item){
     if(item){
-    $scope.carts.push({section:item.section, id:item.id, name:item.name, desc:item.desc, image:item.image, price:item.price})
-    // console.log($scope.foundList)
-    localStorage.setItem("carts", JSON.stringify(carts));
+    $scope.carts.push({
+      section:item.section, 
+      id:item.id, 
+      name:item.name, 
+      desc:item.desc, 
+      image:item.image, 
+      price:item.price, 
+      quantity:item.quantity
+    })
     // console.log(carts);
+    // return carts
+   }
+  localStorage.setItem("carts", JSON.stringify($scope.carts));
+  }
+  $scope.carts = JSON.parse(localStorage.getItem("carts"));
+
+
+
+
+
+  //WISH LIST ITEM ADD
+  $scope.wishList = [];
+  $scope.color = false;
+
+  $scope.wish = function(item){
+    $scope.color = true;
+    if(item){
+    $scope.wishList.push({section:item.section, id:item.id, name:item.name, desc:item.desc, image:item.image, price:item.price, quantity:item.quantity})
+    // console.log($scope.wishList);
     // return carts
    }
   }
 
-  var carts = JSON.parse(localStorage.getItem("carts"));
+  // $scope.message = '';
+  // if(carts == [])$scope.message = ' The Cart Is Empty';
+
+  $scope.inc = function(cart){
+    cart.quantity++;
+  }
+  $scope.dec = function(cart){
+    if(cart.quantity>0){
+      cart.quantity--;
+    }
+  }
+
    
 $scope.total = 0
-  
-  $scope.setTotals = function(cart) {
-    if(cart){
-      $scope.total += cart.price
-    }
+  $scope.setTotals = function() {
+     angular.forEach($scope.carts, function(cart, _index){
+      $scope.total = cart.price * parseInt(cart.quantity);
+    })
+  //  return $scope.total;
    
   }
 
   $scope.remove = function(cart){
     if(cart){
       $scope.carts.splice($scope.carts.indexOf(cart),1);
-      $scope.total -= cart.price;
+      $scope.total -= cart.price * cart.quantity;
     }
   }
   // Adding Item
@@ -180,7 +234,8 @@ $scope.total = 0
     naem='',
     section = '',
     price = '',
-    image=''
+    image='',
+    quantity=''
   ]
 
   $scope.upload = function(item){
@@ -188,25 +243,6 @@ $scope.total = 0
       $scope.searchItems.push({section:$scope.section, id:$scope.id, name:$scope.name, desc:$scope.desc, image:$scope.image, price:$scope.price})
       console.log($scope.searchItems)
     }
-  }
-
-  $scope.increase = false;
-  $scope.decrease = false;
-  $scope.count = '';
-
-  $scope.increment = function(){
-    if(increase){
-      return
-    }
-    $scope.count++
-    increase =  true;
-  }
-  $scope.decrement = function(){
-    if(decrease){
-      return
-    }
-    $scope.count++
-    decrease =  true;
   }
 
   $scope.liked = false;
@@ -256,7 +292,7 @@ app.controller('formCtrl', function ($scope) {
     password= '',
     confirmpassword= '',
 ]
-  $scope.message = '';
+  // $scope.message = '';
   $scope.users = [];
 
 
@@ -274,8 +310,8 @@ app.controller('formCtrl', function ($scope) {
     // $scope.form = '';
     }
   }
-  if(password == confirmpassword)$scope.message = 'Password is matched'
-  if(password == !confirmpassword)$scope.message = 'Password is Miss matched'
+  // if(password == confirmpassword)$scope.message = 'Password is matched'
+  // if(password == !confirmpassword)$scope.message = 'Password is Miss matched'
 
   $scope.formpage = false;
   $scope.show = function(){

@@ -44,24 +44,36 @@
             </div> 
         </div> 
     </div>
-    <h2>Cart</h2>
-
+    <section class="container">
+        <h2>Cart</h2>
+        
         <div class="row">
-            <div class="col-md-4" ng-repeat = "item in carts"> 
+            <div class="col-md-4" ng-repeat = "cart in carts track by $index" > 
                 <div class="card cart_card">
-                    <div class="card-body"   >
-                        <p>  <img class="card-img" ng-src="{{cart.image}}" alt="image" /> 
+                    <div class="card-body" ng-init="setTotals(cart)"  >
+                      <img class="card-img" ng-src="{{cart.image}}" alt="image" /> 
+                        <p ng-init="count = 0">  
+                            <button class="btn btn-danger" ng-click="inc(cart)">
+                           +
+                            </button>
+                            {{count}}
+                            <button class="btn btn-danger" ng-click="dec(cart)">
+                              -
+                            </button>
                          <button class="btn-cart btn-danger" ng-click="remove(cart)">Remove</button>
                         </p>   
                         <h6   class="name_price">
                             {{cart.name}}  &nbsp; &nbsp;   &#8377;{{cart.price}} </h6>
-                        <p>{{cart.desc}}</p>
+                        <!-- <p>{{cart.desc}}</p> -->
                     </div>
                 </div>
-                <h6>Total Price of Items: &#8377; {{total}}</h6>
             </div>
+            {{message}}
+            <h6>Total Price of Items: &#8377; {{total}}</h6>
+           
+            <button class="btn btn-success payment" ng-click="payment(cart)">  Proceed for Payment</button>
       </div>
-  
+    </section>
 
    <script src="./js/home.js"></script>
    
