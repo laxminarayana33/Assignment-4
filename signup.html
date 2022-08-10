@@ -39,20 +39,20 @@
             <div class="col-md-8 content">
               <div class="menu">
                 <ul class="menu_list">
-                  <li class="menu_items">
+                  <li class="login_menu_items">
                     <a class="menu_link" href="Home.html"> Home</a>
                   </li>
                   <!-- <li class="menu_items">About</li> -->
-                  <li class="menu_items">
+                  <li class="login_menu_items">
                     <a class="menu_link" href="About.html">About</a>
                   </li>
-                  <li class="menu_items">
+                  <li class="login_menu_items">
                     <a class="menu_link" href="Gallery.html"> Gallery</a>
                   </li>
-                  <li class="menu_items">
+                  <li class="login_menu_items">
                     <a class="menu_link" href="signup.html">Log In/ Registar</a>
                   </li>
-                  <li class="menu_items">
+                  <li class="login_menu_items">
                     <input
                       class="input"
                       type="search"
@@ -61,7 +61,7 @@
                       placeholder="Search Here..."
                     />
                   </li>
-                  <li class="menu_items">
+                  <li class="login_menu_items">
                     <a class="menu_link" href="./Cart.html">
                       <i class="bi bi-cart-plus"> </i>
                       <svg
@@ -90,13 +90,14 @@
       </div>
     </div>
         <section class="main">
-            <div class="row">
+            <div class="row" ng-controller="formCtrl">
                 <div class="col-md-6">
                     <img src="./images/registert.jpg" alt="register">
                 </div>
-                <div class="col-md-6 ctrl_form" ng-show="formpage"> 
-                    <h3 class="signup">welcome to signup</h3>
-                    <div class="row form_section" ng-controller="formCtrl">
+                <div class="col-md-6 ctrl_form" > 
+                  <div ng-hide="formpage">
+                    <h3 class="signup">welcome to Sign Up</h3>
+                    <div class="row form_section"  >
                         <form name="form" ng-submit="formGroup()">
                             <div class="form_input"><label>Name</label>
                             <input class="form-control" type="text" name="name" ng-model="Name" placeholder="Please Enter Your Name" required>
@@ -133,13 +134,14 @@
                             </div>
                               <button class="btn btn-info log-btn" ng-disabled="form.$invalid" type="submit">SignUp</button>
                         </form>
-                    <p>If you are alredy Registred click here to <a ng-click="login()"> Login </a></p>
                     </div>
-                </div>
+                    <p style="padding-left: 10%;">If you are alredy Registred click here to <span class="link_span" ng-click="show()"> Login </span></p>
+                  </div>
+                
                 <!-- Login In form  -->
-                <div class="col-md-6" ng-hide="formpage"> 
+                <div class="loing" ng-show="formpage"> 
                     <h3 class="signup">welcome to Log In</h3>
-                    <div class="row form_section" ng-controller="formCtrl">
+                    <div class="row form_section">
                         <form name="form" ng-submit="formGroup()">
                             <div class="form_input"> <label>E-mail</label>
                             <input class="form-control"  type="email" name="email" ng-model="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" placeholder="Please Enter Your Email" required>
@@ -155,9 +157,10 @@
                             </div>
                               <button class="btn btn-info log-btn" ng-disabled="form.$invalid" type="submit">Log In</button>
                         </form>
-                        <p>If You not Register at click here <a ng-click="login()">Sign Up</a> </p>
                     </div>
+                    <p style="padding-left: 10%;">If You not Register at click here <span class="link_span" ng-click="show()"> Sign Up </span> </p>
                 </div>
+              </div>
                 <!-- <div class="user">
                     <h4>User Details</h4>
                     <div class="card">
@@ -312,6 +315,7 @@
             </div>
       </div> -->
       <div ng-view></div>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="./js/home.js"></script>
   </body>
 </html>

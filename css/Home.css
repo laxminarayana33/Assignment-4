@@ -211,7 +211,7 @@ a:hover {
 }
 .about_menu_item{
     display: inline-block;
-    padding-left: 3%;
+    padding-left: 1%;
     padding-top: 5%;
     font-weight: 600;
     margin: 0.5%;
@@ -264,7 +264,7 @@ a:hover {
 }
 .gallery_menu_item{
     display: inline-block;
-    padding-left: 3%;
+    padding-left: 1%;
     padding-top: 5%;
     font-weight: 600;
     margin: 0.5%;
@@ -299,10 +299,19 @@ a:hover {
     background-repeat: no-repeat;
     background-size: cover;
 }*/
+.login_menu_items{
+    display: inline-block;
+    padding-left: 1%;
+    padding-top: 7%;
+    font-weight: 600;
+    margin: 0.5%;
+    color:#0d639b;
+}
 .signup{
     text-align: center;
     color: black;
     text-transform: capitalize;
+    margin-top: 3%;
 }
 label{
     padding-left: 10px;
@@ -327,3 +336,23 @@ span{
     width: 20%;
     margin: 20px;
 }
+.link_span{
+    cursor: pointer;
+}
+.badge {
+    border-radius: 20px;
+    opacity: 0.7;
+    z-index: 999  ;
+    color: red;
+    margin-left: -10px;
+    margin-top: -10px;
+    position: absolute;
+    background-color: aliceblue;
+ } 
+ svg:visited
+ {
+    fill:red
+ }
+ .red-color{
+    fill:red;
+ }

@@ -277,9 +277,9 @@ app.controller('formCtrl', function ($scope) {
   if(password == confirmpassword)$scope.message = 'Password is matched'
   if(password == !confirmpassword)$scope.message = 'Password is Miss matched'
 
-  $scope.formpage = true;
-  $scope.login = function(){
-    $scope.formpage = !$scope.formpage
+  $scope.formpage = false;
+  $scope.show = function(){
+    $scope.formpage = $scope.formpage? false : true;
   }
 
 
