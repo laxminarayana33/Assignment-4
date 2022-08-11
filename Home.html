@@ -194,13 +194,13 @@
                   <h5 style="text-align: center;">
                     &#8377; {{item.price}} &nbsp;
                     &nbsp;
-                    <i class="bi bi-heart-fill" ng-style="myStyle" ng-click="like($event)">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-heart-fill" ng-click="wish(item)" viewBox="0 0 16 16">
+                    <i class="bi bi-heart-fill" ng-click="wish(item)" ng-class="{'red': item.selected}" >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-heart-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                       </svg>
                     </i>
                   </h5>
-                  
+                  <!-- ng-style="islicked && {'fill':'black'} || {'fill':'red'} " -->
                   <button class="button btn-primary" ng-click="store(item)">
                     Add Cart
                   </button>

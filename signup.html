@@ -96,6 +96,7 @@
                 <div class="col-md-6 ctrl_form" > 
                   <div ng-hide="formpage">
                     <h3 class="signup">welcome to Sign Up</h3>
+                    <p style="padding-left: 10%;">If you are alredy Registred click here to <span class="link_span" ng-click="show()"> Login </span></p>
                     <div class="row form_section"  >
                         <form name="form" ng-submit="formGroup()">
                             <div class="form_input"><label>Name</label>
@@ -134,12 +135,13 @@
                               <button class="btn btn-info log-btn" ng-disabled="form.$invalid" type="submit">SignUp</button>
                         </form>
                     </div>
-                    <p style="padding-left: 10%;">If you are alredy Registred click here to <span class="link_span" ng-click="show()"> Login </span></p>
                   </div>
                 
                 <!-- Login In form  -->
                 <div class="loing" ng-show="formpage"> 
                     <h3 class="signup">welcome to Log In</h3>
+                    <p style="padding-left: 10%;">If You not Register at click here <span class="link_span" ng-click="show()"> Sign Up </span> </p>
+
                     <div class="row form_section">
                         <form name="form" ng-submit="formGroup()">
                             <div class="form_input"> <label>E-mail</label>
@@ -157,7 +159,6 @@
                               <button class="btn btn-info log-btn" ng-disabled="form.$invalid" type="submit">Log In</button>
                         </form>
                     </div>
-                    <p style="padding-left: 10%;">If You not Register at click here <span class="link_span" ng-click="show()"> Sign Up </span> </p>
                 </div>
               </div>
                 <!-- <div class="user">

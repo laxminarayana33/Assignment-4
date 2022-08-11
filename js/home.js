@@ -181,10 +181,10 @@ app.controller('myCtrl', function ($scope) {
     // return carts
    }
    
-  localStorage.setItem("carts", JSON.stringify($scope.carts));
+  localStorage.setItem("cartData", JSON.stringify($scope.carts));
 
   }
-  $scope.carts = JSON.parse(localStorage.getItem("carts"));
+  $scope.carts = JSON.parse(localStorage.getItem("cartData"));
 
 
 
@@ -199,10 +199,12 @@ app.controller('myCtrl', function ($scope) {
 
   $scope.wish = function(item){
     // $scope.color = true;
+    this.item.selected = !this.item.selected;
     if(item){
     $scope.wishList.push({section:item.section, id:item.id, name:item.name, desc:item.desc, image:item.image, price:item.price, quantity:item.quantity})
     // console.log($scope.wishList);
     // return carts
+    
    }
   localStorage.setItem("wish", JSON.stringify($scope.wishList));
   }
@@ -259,10 +261,27 @@ $scope.total = 0
 
   $scope.liked = false;
 
-  $scope.payment = function(){
-    alert("payment done")
+  $scope.payment = function(cart){
+    if(cart !== 0){
+      window.location.href = './payment.html';
+    }
+    else{
+      window.location.href = './signup.html';
+    }
   }
 
+  $scope.bought= function(cart){
+    if(cart){
+      alert('Your Payments is Successfull, Order is Confirmed');
+      window.location.href = './Home.html';
+    }
+  }
+
+  $scope.buy =  function(item){
+    if(item){
+      window.location.href = './payment.html'
+    }
+  }
   
   // $scope.like = function(item){
   //   if(color = false){
