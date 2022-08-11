@@ -121,7 +121,8 @@ fill: #ddaf2b;
 }
 .button{
     border-radius: 15px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
+    margin: 6%;
 }
 .card-img{
     height: 90px;
@@ -249,6 +250,9 @@ a:hover {
     font-size: 16px;
     font-family: cursive;
 }
+.abt-container{
+    margin-top: 12%;
+}
 .partner{
     margin-bottom: 20px;
 }
@@ -283,6 +287,9 @@ a:hover {
     font-weight: 600;
     margin: 0.5%;
     color:#0d639b;
+}
+.gallery-container{
+    margin-top: 13%;
 }
 
 /* SIGNUP PAGE CSS */

@@ -79,7 +79,7 @@
                       />
                     </svg>
                   </a>
-                  <span ng-init="0" class="badge badge-primary">0</span>
+                  <span class="badge badge-primary" ng-init="items=0" >{{items}}</span>
                 </li>
                 <!-- </li> <li class="menu_items"><button class="btn btn-primary"ng-click="show()">Narrow it Down For Me</button>  </li> -->
               </ul>
@@ -95,7 +95,10 @@
         </div>
         <div class="items">
           <div class="row">
-            <div
+            <div ng-if="!wishList || wishList.length === 0">
+              <p>Your Wish List is Empty</p>
+            </div>
+            <div ng-if="wishList || wishList.length> 0"
               class="col-md-3"
               ng-repeat="item in wishList"
             >
@@ -119,19 +122,14 @@
                       </svg>
                     </i>
                   </h5>
-                  <p ng-init="count = 0">
-                      <button class="btn btn-danger incre_btn" ng-click="count= count+1">
-                        <p class="incre_symbl">+</p>
-                      </button>
-                      {{count}}
-                      <button class="btn btn-danger incre_btn" ng-click="count= count-1">
-                        <p class="incre_symbl">-</p>
-                      </button>
-                
                     <button class="button btn-primary" ng-click="store(item)">
                       Add Cart
                     </button>
-                  </p>
+                      
+                    <button class="button btn-danger" ng-click="buy(item)">
+                      Buy Now
+                    </button>
+                  
                 </div>
               </div>
             </div>
