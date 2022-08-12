@@ -58,11 +58,11 @@
                     <div class="card-body" ng-init="setTotals(cart)"  >
                       <img class="card-img" ng-src="{{cart.image}}" alt="image" /> 
                         <p ng-init="count = 0">  
-                            <button class="btn btn-danger" ng-click="inc(item)">
+                            <button class="btn btn-danger" ng-click="inc(cart)">
                            +
                             </button>
-                            {{count}}
-                            <button class="btn btn-danger" ng-click="dec(item)">
+                            {{cart.quantity}}
+                            <button class="btn btn-danger" ng-click="dec(cart)">
                               -
                             </button>
                          <button class="btn-cart btn-danger" ng-click="remove(cart)">Remove</button>

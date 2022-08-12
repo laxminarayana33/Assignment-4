@@ -90,8 +90,8 @@
   </section>
   <section class="container payment-container" ng-controller="myCtrl">
     <h2>Payment</h2>
-    <div class="bought" ng-repeat = "cart in carts">
-        <table class="table">
+    <div class="bought" >
+        <table class="table" >
             <thead>
                 <tr>
                     <th>S.No</th>
@@ -100,37 +100,57 @@
                     <th>Price</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td></td>
+            <tbody >
+                <tr ng-repeat = "cart in carts" ng-init="total = 0" >
+                    <td>{{$index + 1}}</td>
                     <td>{{cart.name}}</td>
-                    <td>{{cart.quantity}}</td>
-                    <td>{{cart.price}}</td>
+                    <td>
+                      <button class="btn btn-danger" ng-click="inc(cart)">
+                        +
+                         </button>
+                         {{cart.quantity}}
+                         <button class="btn btn-danger" ng-click="dec(cart)">
+                          -
+                        </button></td>
+                    <td ng-init="$parent.total = $parent.total + (cart.price * cart.quantity)">{{cart.price * cart.quantity}}</td>
+                </tr>
+                <tr>
+                  <td><h6>Total Price of Items:</h6> </td><td></td><td></td>
+                  <td>&#8377; {{total}}</td>
                 </tr>
             </tbody>
         </table>
-        <h6>Total Price of Items: &#8377; {{total}}</h6>   
-        <button class="btn btn-success payment" ng-click="bought(cart)">  Proceed for Payment</button>
-        <!-- <div class="col-md-4" ng-if="carts || carts.length> 0" ng-repeat = "cart in carts track by $index" > 
-            <div class="card cart_card">
-                <div class="card-body" ng-init="setTotals(cart)"  >
-                  <img class="card-img" ng-src="{{cart.image}}" alt="image" /> 
-                    <p ng-init="count = 0">  
-                        <button class="btn btn-danger" ng-click="inc(item)">
-                       +
-                        </button>
-                        {{count}}
-                        <button class="btn btn-danger" ng-click="dec(item)">
-                          -
-                        </button>
-                     <button class="btn-cart btn-danger" ng-click="remove(cart)">Remove</button>
-                    </p>   
-                    <h6   class="name_price">
-                        {{cart.name}}  &nbsp; &nbsp;   &#8377;{{cart.price}} </h6>
-                    <p>{{cart.desc}}</p>
-                </div>
-            </div>
-        </div> -->
+        <!-- <table class="table" >
+          <thead>
+              <tr>
+                  <th>S.No</th>
+                  <th>Name</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+              </tr>
+          </thead>
+          <tbody >
+              <tr ng-repeat = "item in searchItems" ng-init="total = 0" >
+                  <td>{{$index + 1}}</td>
+                  <td>{{item.name}}</td>
+                  <td>
+                    <button class="btn btn-danger" ng-click="inc(cart)">
+                      +
+                       </button>
+                       {{item.quantity}}
+                       <button class="btn btn-danger" ng-click="dec(cart)">
+                        -
+                      </button></td>
+                  <td ng-init="$parent.total = $parent.total + (item.price * item.quantity)">{{item.price * item.quantity}}</td>
+              </tr>
+              <tr>
+                <td><h6>Total Price of Items:</h6> </td><td></td><td></td>
+                <td>&#8377; {{total}}</td>
+              </tr>
+          </tbody>
+      </table> -->
+          
+        <button class="btn btn-success payment" ng-click="bought()">Proceed for Payment</button>
     </div>
 </section>
    

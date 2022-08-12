@@ -205,7 +205,7 @@
                     Add Cart
                   </button>
                     
-                  <button class="button btn-danger" ng-click="buy(item)">
+                  <button class="button btn-danger" ng-click="store(item)">
                     Buy Now
                   </button>
                 </div>
@@ -387,5 +387,11 @@
       <div ng-view></div>
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="./js/home.js"></script>
+    <script>
+
+      localStorage.setItem('carts', JSON.stringify([]));
+      localStorage.setItem('wish', JSON.stringify([]));
+    
+        </script>
   </body>
 </html>
