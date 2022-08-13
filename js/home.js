@@ -229,11 +229,11 @@ app.controller('myCtrl', function ($scope) {
   //   return total;
   // }
    
-// $scope.total = 0
-// var totalcart = JSON.parse(localStorage.getItem('carts'));
-//   totalcart.forEach((cart) => {
-//   $scope.total += cart.price * cart.quantity;
-// });
+$scope.total = 0
+var totalcart = JSON.parse(localStorage.getItem('carts'));
+  totalcart.forEach((cart) => {
+  $scope.total += cart.price * cart.quantity;
+});
     // let totalcart = JSON.parse(localStorage.getItem('carts'));
 
     //   totalcart.forEach((obj) => {
