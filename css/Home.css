@@ -10,7 +10,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     /* position: fixed; */
-    background-color: white;
+    /* background-color: white; */
+    z-index: 999;
 }
 .sticky {
     position: fixed;
