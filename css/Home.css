@@ -395,3 +395,13 @@ span{
  .cart-container{
     margin-top: 2%;
  }
+
+ .radio{
+    margin: 10px;
+ }
+ .confirm{
+    width: 100%;
+    border-radius: 26px;
+    margin-top: 30%;
+
+ }

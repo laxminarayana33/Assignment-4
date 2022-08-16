@@ -276,7 +276,7 @@ var totalcart = JSON.parse(localStorage.getItem('carts'));
 
   $scope.payment = function(cart){
     if(cart !== 0){
-      window.location.href = './payment.html';
+      window.location.href = './confirm.html';
     }
     else{
       window.location.href = './signup.html';
@@ -290,7 +290,7 @@ var totalcart = JSON.parse(localStorage.getItem('carts'));
 
   $scope.buy =  function(item){
     if(item){
-      window.location.href = './payment.html'
+      window.location.href = './confirm.html'
     }
   }
   
@@ -358,7 +358,42 @@ app.controller('formCtrl', function ($scope) {
   $scope.formpage = false;
   $scope.show = function(){
     $scope.formpage = $scope.formpage? false : true;
+  };
+
+
+ $scope.cpayments = [];
+  $scope.cpayment = [
+    Name= '',
+    email= '',
+    phonenumber= '',
+    hnumber= '',
+    street ='',
+    city = '', 
+    pincode = '',
+    state = '',
+  ]
+
+  $scope.paymentGroup = function () {
+    if ($scope.cpayment) {
+      $scope.capayments.push({
+        Name: $scope.Name,
+        email: $scope.email,
+        phonenumber: $scope.phonenumber,
+        hnumber:$scope.hnumber,
+        street:$scope.street,
+        city:$scope.city,
+        pincode:$scope.pincode,
+        state:$scope.state,
+      })
+      console.log($scope.cpayments);
+    }
   }
+  
+  $scope.bought = function(){
+    alert('Your Payments is Successfull, Order is Confirmed');
+    window.location.href = './Home.html';
+}
+
 
 
 })
